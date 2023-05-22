@@ -1,9 +1,9 @@
 // import React from 'react'
-import "./Produtos.css";
+import "./Cruds.css";
 
 const Produtos = () => {
-  return <div className='produtos'>
-    <h2>Inserir Novo Produto:</h2>
+  return <div className='Cruds'>
+    <h2>Inserir/Alterar Produto:</h2>
     <form>
       <div className="form-control">
         <label htmlFor="Desc">Descrição:</label>
