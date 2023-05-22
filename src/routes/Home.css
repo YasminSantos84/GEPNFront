@@ -1,0 +1,47 @@
+img {
+    margin: auto;
+    display: block;
+    border-radius: 80%;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.home h1{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.Movs{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #243757;
+}
+
+.Movs h2,
+.Movs p{
+    margin-bottom: 1rem;
+}
+
+.Movs h2::first-letter{
+    text-transform: uppercase;
+}
+
+.btn{
+    background-color: #3A5F6F;
+    opacity: 90%;
+    color: #DAD5B7;
+    border: 1px solid #DAD5B7;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    max-width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn.hover{
+    color: #99957E;
+    background-color: #243757;
+}
