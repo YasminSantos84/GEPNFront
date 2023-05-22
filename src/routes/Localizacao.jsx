@@ -31,11 +31,11 @@ const Localizacao = () => {
           id='EstMax'
           />            
         <label  htmlFor="Bloq">Bloqueado:</label>
-          <input
-          type='text' 
-          name='Bloq' 
-          id='Bloq'
-          />          
+        <select id="myComboBox">
+          <option value="S">S</option>
+          <option value="N">N</option>
+        </select>
+            
       </div>
       <input type='submit' value="Salvar" className='btn'/>
     </form>

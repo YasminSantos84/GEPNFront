@@ -28,3 +28,13 @@ form{
     height: 15px;
     border-color: #DDD18C;
 }
+
+.form-control select{
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+    border-color: #DDD18C;
+    width: 75px;
+}
+

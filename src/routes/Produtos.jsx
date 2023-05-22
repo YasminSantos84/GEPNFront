@@ -19,10 +19,10 @@ const Produtos = () => {
           name='Valid' 
           id='Valid'/>
         <label htmlFor="Status">Status:</label>
-        <input 
-          type='text' 
-          name='Status' 
-          id='Status'/>      
+        <select id="myComboBox">
+          <option value="A">Ativo</option>
+          <option value="I">Inativo</option>
+        </select>   
         <label htmlFor="VComp">Valor de compra:</label>
         <input 
           type='number' 
