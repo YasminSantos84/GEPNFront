@@ -16,7 +16,7 @@ const Produtos = () => {
   const createProd = async(e) =>{
     e.preventDefault();
     console.log(Desc, Valid, Status, VComp,VVend);
-    const Produt = {Desc, Valid, Status, VComp,VVend, UserId:1};
+    const Prod = {Desc, Valid, Status, VComp,VVend, UserId:1};
     await blogFetch.post("/posts", {
       body: post,
     });

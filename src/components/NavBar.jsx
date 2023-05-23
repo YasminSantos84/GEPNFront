@@ -32,6 +32,11 @@ const NavBar = () => {
                 </Link>
             </li>
         </ul>
+        <p className="login">
+          <Link to={`/Login`} className="new-btn">
+            Deslogar
+          </Link>
+        </p>
     </nav>
   )
 }

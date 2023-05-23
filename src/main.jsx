@@ -8,7 +8,8 @@ import Home from "./routes/Home";
 import Produtos from "./routes/Produtos";
 import Localizacao from "./routes/Localizacao";
 import TpMovimentacao from "./routes/TipoMovimento";
-import Movimentacao from "./routes/Movimentacao"
+import Movimentacao from "./routes/Movimentacao";
+import Login from "./routes/Login";
 
 import "./index.css";
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"/Mov",
         element:<Movimentacao/>,
+      },
+      {
+        path:"/Login",
+        element:<Login/>
       }
     ]
   }

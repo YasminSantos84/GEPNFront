@@ -3,6 +3,17 @@
     margin-bottom: 1rem;
 }
 
+.Cruds h3{
+    text-align: center;
+    margin-bottom: 1rem;  
+    font-family: 'Catamaran';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 59px;
+    color: #99957E;    
+}
+
 form{
     max-width: 500px;
     margin: 0 auto;
