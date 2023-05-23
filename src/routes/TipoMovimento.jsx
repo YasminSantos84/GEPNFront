@@ -11,11 +11,12 @@ const TpMovimentacao = () => {
           type="text"
           name="Desc"
           id="Desc"/>
-        <label htmlFor="Op">Operação(E/S):</label>
-        <input 
-          type="text"
-          name="Op"
-          id="Op"/>      
+        <label htmlFor="Op">Operação:</label>
+        <select id="Status">
+          <option value="E">Entrada</option>
+          <option value="S">Saida</option>
+          <option value="I">Interno</option>
+        </select>       
         <label htmlFor="Status">Status:</label>
         <input 
           type="text"

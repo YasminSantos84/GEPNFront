@@ -31,7 +31,7 @@ const Localizacao = () => {
           id='EstMax'
           />            
         <label  htmlFor="Bloq">Bloqueado:</label>
-        <select id="myComboBox">
+        <select id="Bloq">
           <option value="S">S</option>
           <option value="N">N</option>
         </select>
