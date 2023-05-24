@@ -11,23 +11,25 @@ const url = "http://localhost:3000/Prod";
 function Produtos () {
   const navigate = useNavigate()
   const { data: items, httpConfig, loading, error } = useFetch(url);
-  const [Prod, setProds] = useState([])
-  const [Desc, setDesc] = useState()
-  const [Valid, SetValid] = useState()
-  const [Status, setStatus] = useState()
-  const [VComp, setVComp] = useState()
-  const [VVend, setVVend] = useState()
+  const [CODIGO, setCod] = useState([])
+  const [DESCRICAO, setDesc] = useState()
+  const [VALIDADE, SetValid] = useState()
+  const [STATUS, setStatus] = useState()
+  const [VALORCOMPRA, setVComp] = useState()
+  const [VALORVENDA, setVVend] = useState()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const product = {
-      Desc,
-      Valid,
-      Status,
-      VComp,
-      VVend,
+      CODIGO,
+      DESCRICAO,
+      VALIDADE,
+      STATUS,
+      VALORCOMPRA,
+      VALORVENDA,
     };
+    setProducts((prevProducts) => [...prevProducts, addedProduct]);
     httpConfig(product, "POST");
     setDesc("");
     SetValid("");
@@ -83,8 +85,7 @@ function Produtos () {
         Visualizar em Tabela
       </Link>
     </form>
-    <h1>Lista de produtos</h1>
-      {/* 6 - state de loading */}
+    {/* <h1>Lista de produtos</h1>
       {loading && <p>Carregando dados...</p>}
       {error && <p>{error}</p>}
       <ul>
@@ -92,11 +93,46 @@ function Produtos () {
           items.map((product) => (
             <li key={product.id}>
               {product.CODIGO}
-              {/* 9 - desafio */}
               <button onClick={() => handleRemove(product.id)}>Excluir</button>
             </li>
           ))}
-      </ul>
+      </ul> */}
+      <h1>Lista de produtos</h1>
+      {loading && <p>Carregando dados...</p>}
+      {error && <p>{error}</p>}
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Data Alt.</th>
+            <th>Usuário Alt</th>
+            <th>Validade</th>
+            <th>Status</th>
+            <th>V.Compra</th>
+            <th>V.Venda</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items &&
+            items.map((product) => (
+              <tr key={product.id}>
+                <td>{product.CODIGO}</td>
+                <td>{product.DESCRICAO}</td>
+                <td>{product.DATAAT}</td>
+                <td>{product.USERAT}</td>
+                <td>{product.VALIDADE}</td>
+                <td>{product.STATUS}</td>
+                <td>{product.VALORCOMPRA}</td>
+                <td>{product.VALORVENDA}</td>
+                <td>
+                  <button onClick={() => handleRemove(product.id)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
   </div>
 }
 
