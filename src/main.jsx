@@ -10,6 +10,7 @@ import Localizacao from "./routes/Localizacao";
 import TpMovimentacao from "./routes/TipoMovimento";
 import Movimentacao from "./routes/Movimentacao";
 import Login from "./routes/Login";
+import { ProdutosTable } from './routes/ProdutosTable.jsx';
 
 import "./index.css";
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path:"/Login",
         element:<Login/>
+      },
+      {
+        path:"/ProdTab",
+        element:<ProdutosTable/>
       }
     ]
   }

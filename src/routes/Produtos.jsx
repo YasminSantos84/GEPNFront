@@ -1,26 +1,44 @@
 // import React from 'react'
 import "./Cruds.css";
 import blogFetch from "../axios/config";
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
-const Produtos = () => {
+const url = "http://localhost:3000/Prod";
+
+function Produtos () {
   const navigate = useNavigate()
-
+  const { data: items, httpConfig, loading, error } = useFetch(url);
+  const [Prod, setProds] = useState([])
   const [Desc, setDesc] = useState()
   const [Valid, SetValid] = useState()
   const [Status, setStatus] = useState()
   const [VComp, setVComp] = useState()
   const [VVend, setVVend] = useState()
 
-  const createProd = async(e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(Desc, Valid, Status, VComp,VVend);
-    const Prod = {Desc, Valid, Status, VComp,VVend, UserId:1};
-    await blogFetch.post("/posts", {
-      body: post,
-    });
+
+    const product = {
+      Desc,
+      Valid,
+      Status,
+      VComp,
+      VVend,
+    };
+    httpConfig(product, "POST");
+    setDesc("");
+    SetValid("");
+    setStatus("");
+    setVComp("");
+    setVVend("");
   };  
+
+  const handleRemove = (id) =>{
+    httpConfig(id,"DELETE");
+  }
 
 
 
@@ -60,7 +78,25 @@ const Produtos = () => {
           onChange={(e)=>setVVend(e.target.value)}/>                          
       </div>
       <input type='submit' value="Salvar" className='btn'/>
+      <br></br>
+      <Link to={`/ProdTab`} className="link2">
+        Visualizar em Tabela
+      </Link>
     </form>
+    <h1>Lista de produtos</h1>
+      {/* 6 - state de loading */}
+      {loading && <p>Carregando dados...</p>}
+      {error && <p>{error}</p>}
+      <ul>
+        {items &&
+          items.map((product) => (
+            <li key={product.id}>
+              {product.CODIGO}
+              {/* 9 - desafio */}
+              <button onClick={() => handleRemove(product.id)}>Excluir</button>
+            </li>
+          ))}
+      </ul>
   </div>
 }
 

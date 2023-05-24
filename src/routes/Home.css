@@ -39,6 +39,7 @@ img {
     max-width: 100px;
     cursor: pointer;
     transition: 0.3s;
+    margin-bottom: 2rem;
 }
 
 .btn.hover{

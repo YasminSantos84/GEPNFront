@@ -14,6 +14,17 @@
     color: #99957E;    
 }
 
+.link2{
+    background-color: #DAD5B7;
+    opacity: 90%;
+    color: #3a6f63e9;
+    border: none;
+    padding: 0.5rem 1rem;
+    max-width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 form{
     max-width: 500px;
     margin: 0 auto;
