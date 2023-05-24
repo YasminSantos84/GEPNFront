@@ -29,7 +29,22 @@ function Produtos () {
       VALORCOMPRA,
       VALORVENDA,
     };
-    setProducts((prevProducts) => [...prevProducts, addedProduct]);
+    useEffect(async () => {
+      const res = await fetch("http://localhost:3000/products");
+
+      const data = await res.json();
+
+      setProducts(data);
+    }, []);
+    const res = await fetch("http://localhost:3000/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    });
+    const addedProduct = await res.json();
+    // setProducts((prevProducts) => [...prevProducts, addedProduct]);
     httpConfig(product, "POST");
     setDesc("");
     SetValid("");
@@ -41,8 +56,6 @@ function Produtos () {
   const handleRemove = (id) =>{
     httpConfig(id,"DELETE");
   }
-
-
 
   return <div className='Cruds'>
     <h2>Inserir/Alterar Produto:</h2>
