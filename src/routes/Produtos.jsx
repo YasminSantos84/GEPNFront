@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
-const url = "http://localhost:3000/Prod";
+const url = "http://localhost:3000/api/produtos";
 
 function Produtos () {
   const navigate = useNavigate()
@@ -20,7 +20,6 @@ function Produtos () {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const product = {
       CODIGO,
       DESCRICAO,
@@ -30,7 +29,7 @@ function Produtos () {
       VALORVENDA,
     };
     useEffect(async () => {
-      const res = await fetch("http://localhost:3000/products");
+      const res = await fetch(url);
 
       const data = await res.json();
 
@@ -52,12 +51,11 @@ function Produtos () {
     setVComp("");
     setVVend("");
   };  
-
   const handleRemove = (id) =>{
     httpConfig(id,"DELETE");
   }
 
-  return <div className='Cruds'>
+return <div className='Cruds'>
     <h2>Inserir/Alterar Produto:</h2>
     <form onSubmit={(e)=>createProd(e)}>
       <div className="form-control">
@@ -93,10 +91,10 @@ function Produtos () {
           onChange={(e)=>setVVend(e.target.value)}/>                          
       </div>
       <input type='submit' value="Salvar" className='btn'/>
-      <br></br>
+      {/* <br></br>
       <Link to={`/ProdTab`} className="link2">
         Visualizar em Tabela
-      </Link>
+      </Link> */}
     </form>
     {/* <h1>Lista de produtos</h1>
       {loading && <p>Carregando dados...</p>}
@@ -113,33 +111,33 @@ function Produtos () {
       <h1>Lista de produtos</h1>
       {loading && <p>Carregando dados...</p>}
       {error && <p>{error}</p>}
-      <table>
+      <table class="bordered striped centered" className="tabela">
         <thead>
           <tr>
-            <th>Código</th>
-            <th>Descrição</th>
-            <th>Data Alt.</th>
-            <th>Usuário Alt</th>
-            <th>Validade</th>
-            <th>Status</th>
-            <th>V.Compra</th>
-            <th>V.Venda</th>
-            <th>Ação</th>
+            <th class="conteudo">Código</th>
+            <th class="conteudo">Descrição</th>
+            <th class="conteudo">Data Alt.</th>
+            <th class="conteudo">Usuário Alt</th>
+            <th class="conteudo">Validade</th>
+            <th class="conteudo">Status</th>
+            <th class="conteudo">V.Compra</th>
+            <th class="conteudo">V.Venda</th>
+            <th class="acoes">Ação</th>
           </tr>
         </thead>
         <tbody>
-          {items &&
-            items.map((product) => (
+          {items.result &&
+            items.result.map((product) => (
               <tr key={product.id}>
-                <td>{product.CODIGO}</td>
-                <td>{product.DESCRICAO}</td>
-                <td>{product.DATAAT}</td>
-                <td>{product.USERAT}</td>
-                <td>{product.VALIDADE}</td>
-                <td>{product.STATUS}</td>
-                <td>{product.VALORCOMPRA}</td>
-                <td>{product.VALORVENDA}</td>
-                <td>
+                <td class="conteudo">{product.codigo}</td>
+                <td class="conteudo">{product.descricao}</td>
+                <td class="conteudo">{product.dataat}</td>
+                <td class="conteudo">{product.userat}</td>
+                <td class="conteudo">{product.validade}</td>
+                <td class="conteudo">{product.status}</td>
+                <td class="conteudo">{product.valorcompra}</td>
+                <td class="conteudo">{product.valorvenda}</td>
+                <td class="acoes">
                   <button onClick={() => handleRemove(product.id)}>Excluir</button>
                 </td>
               </tr>

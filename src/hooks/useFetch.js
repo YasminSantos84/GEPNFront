@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // 4 - custom hook
 export const useFetch = (url) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   // 5 - refatorando post
   const [config, setConfig] = useState(null);

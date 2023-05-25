@@ -25,6 +25,30 @@
     transition: 0.3s;
 }
 
+table, th, td{
+    border: 1px solid #3a6f63e9;
+    border-collapse: collapse;
+    padding: 5px 2px;
+    box-sizing: border-box;
+    background: #d4cda5;
+}
+
+table {
+    width: 100%;
+}
+
+.acoes{
+    text-align: center;
+}
+
+th{
+    background-color: #DDD18C;
+}
+
+tr.hover{
+    background-color: #dfdcce;
+}
+
 form{
     max-width: 500px;
     margin: 0 auto;
@@ -35,6 +59,17 @@ form{
     display: flex;
     flex-direction: column;
     margin: 1rem;
+}
+
+button{
+    background-color: #3a6f6583;
+    opacity: 80%;
+    color: #DAD5B7;
+    border: 1px solid #DAD5B7;
+    border-radius: .5rem;
+    max-width: 100px;
+    cursor: pointer;
+    transition: 0.8s;
 }
 
 .form-control label{
